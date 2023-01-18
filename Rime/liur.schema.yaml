@@ -35,7 +35,7 @@ engine:
     - recognizer
     - key_binder
     - speller
-#    - punctuator
+    - punctuator
     - selector
     - navigator
     - express_editor
@@ -72,6 +72,7 @@ engine:
 # abc_segmentor:
   # extra_tags:
     # - liurqry
+# colemak
 
 liu_w2c:
   opencc_config: liu_w2c.json
@@ -120,19 +121,21 @@ fixed:
 mkst:
   __include: /translator
   enable_sentence: true
-  prefix: ';'
+  prefix: '/'
   tips: "〔造詞〕"
   tag: mkst
   initial_quality: 10
 
 liurqry:
   __include: /translator
-  prefix: ";;"
+  prefix: "//"
   suffix: "'"
   tips: 【反查讀音】
   closing_tips: 【蝦米】
   initial_quality: 300	# 調整該編譯器出字優先度
   tag: liurqry
+  prism: colemak
+
 
 pinyin:
   tag: pinyin
@@ -196,10 +199,6 @@ phonetic_reverse_lookup:
     - xform/^/ {
     - xform/$/}/
 
-punctuator:
-#  import_preset: default
-#  import_preset: alternative
-
 key_binder:
   import_preset: default
 
@@ -209,11 +208,10 @@ recognizer:
   patterns:
     email: ^[a-z][-_.0-9a-z]*@.*$
     url: ^(www[.]|https?:|ftp:|mailto:).*$
-    phonetic: "';[1qaz2wsxedcrfv5tgbyhnujm8ik,9ol.0p;/-6347]*'?$"
+    phonetic: "';[1qaz2wsxedcrfv5tgbyhnujm8ik,9ol.0p;/6347-]*'?$"
 # 注音反查引導鍵
     pinyin: "`[a-z']*'?$"
 # 漢語拼音輸入引導鍵
-    mkst: "^;[a-z,.'`]*$"
-#造詞引導
-    liurqry: ";;[a-z']*'?$"
-# 讀音反查引導鍵
+    mkst: "^/[a-z,.'`]*$"
+    liurqry: "//[a-z']*'?$"
+

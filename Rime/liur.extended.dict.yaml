@@ -1,4 +1,4 @@
-﻿# Rime schema 中州輸入法的字碼檔
+# Rime schema 中州輸入法的字碼檔
 # encoding: utf-8
 #
 # 最簡單的(無蝦米)輸入方案
@@ -22,7 +22,7 @@ import_tables:
   - liur_Trad
   - liur_TradExt
   - liur_customWords
-  # - liur_English
+    #- liur_English
   #- liur_Japan
 # 如果要啟動日文漢字就取消註解
 ...
